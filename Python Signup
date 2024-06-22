@@ -1,0 +1,56 @@
+import time
+from datetime import datetime
+
+def sign_up():
+    user_data = {} 
+    print("Welcome to Nevtech, This is our signup page")
+    print("Loading 5...4...3...2...1⌛")
+    for _ in range(5):
+        print("_", end= " ")
+        time.sleep(1)
+    print()
+    
+    user_data["Name"] = input("Insert your name: ")
+    user_data["Email"] = input("Enter your email address: ")
+    user_data["Password"] = input("Create a password: ")
+    user_data["Contact"] = input("Enter your Phone Number: ")
+    user_data["DOB"] = input("Enter your date of birth: ")
+    user_data["Gender"] = input("Enter your sex (Male or Female): ").strip()
+    user_data["Skills"] = input("Insert the skill you possess: ")
+    
+    if user_data["Gender"] == "female":
+        print("You are a Female")
+    elif user_data["Gender"] == "male":
+        print("You are a Male")
+    else:
+        print("Invalid Input. Please a  valid gender")
+
+    return user_data
+
+user_data = sign_up()
+
+confirmation = input("Is the above information correct?! (Yes/No)").strip()
+print("Loading⌛, 5...4...3...2...1 ")
+for _ in range(5):
+    print(".", end=" ")
+    time.sleep(1)
+print()
+
+if confirmation != "Yes":
+    print("Please verify your information")
+    user_data = sign_up()
+else:
+    print("\n Thank You for Signing Up✔ Your account has been created")
+    
+    print("\n Review your information")
+    print(f"Name: {user_data['Name']}")
+    print(f"Email: {user_data['Email']}")
+    print("password: *****(for Security Reason)")
+    print(f"Contact: {user_data['Contact']}")
+    print(f"DOB: {user_data['DOB']}")
+    print(f"Gender: {user_data['Gender']}")
+
+birth_year = int(input("Enter your year of birth: "))
+current_year = datetime.now().year
+age = current_year - birth_year
+print(f"You are {age} years old")
